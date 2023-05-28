@@ -1,21 +1,8 @@
 import './SearchForm.css';
 
-import { useState } from 'react';
-
-export function SearchForm({ onSearchSubmit }) {
-	const [query, setQuery] = useState('');
-
-	function handleInputChange(evt) {
-		setQuery(evt.target.value);
-	}
-
-	function handleFormSubmit(event) {
-		event.preventDefault();
-		onSearchSubmit(query);
-	}
-
+export function SearchForm({ onSearchSubmit, query }) {
 	return (
-		<form className="Form" role="search" onSubmit={handleFormSubmit}>
+		<form className="Form" role="search" onSubmit={onSearchSubmit}>
 			<input
 				aria-label="Search for artworks"
 				className="input"
@@ -24,7 +11,6 @@ export function SearchForm({ onSearchSubmit }) {
 				name="query"
 				type="text"
 				value={query}
-				onChange={handleInputChange}
 			/>
 			<button className="button" type="submit">
 				Search
