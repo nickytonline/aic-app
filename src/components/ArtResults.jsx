@@ -7,7 +7,11 @@ export function ArtResults({ artworks }) {
 				const { image_id, title, artist_title } = artwork;
 				return (
 					<li key={image_id}>
-						<a href={`#${image_id}`}>{`${title} by ${artist_title}`}</a>
+						<a
+							data-artwork={JSON.stringify(artwork)}
+							href={`#${image_id}`}
+							id={image_id}
+						>{`${title} by ${artist_title}`}</a>
 					</li>
 				);
 			})}
@@ -26,7 +30,7 @@ ArtResults.propTypes = {
 				height: PropTypes.number.isRequired,
 			}).isRequired,
 			date_display: PropTypes.string.isRequired,
-			artist_title: PropTypes.string.isRequired,
+			artist_title: PropTypes.string,
 			image_id: PropTypes.string.isRequired,
 			title: PropTypes.string.isRequired,
 		})
