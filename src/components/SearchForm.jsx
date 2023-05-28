@@ -6,11 +6,11 @@ export function SearchForm({ onSearchSubmit, query }) {
 			<input
 				aria-label="Search for artworks"
 				className="input"
+				default={query}
 				id="search-field"
 				inputMode="search"
 				name="query"
 				type="text"
-				value={query}
 			/>
 			<button className="button" type="submit">
 				Search
